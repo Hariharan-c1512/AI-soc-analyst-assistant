@@ -1,0 +1,24 @@
+title: Web Shell Upload Attempt
+id: WEB-001
+status: experimental
+description: Detects attempts to upload web shells to web servers
+level: 9
+logsource:
+    product: wazuh
+    service: apache
+detection:
+    selection_keywords:
+        keywords:
+            - "web shell"
+            - "shell.php"
+            - "upload attempt"
+            - "webshell"
+    condition: selection_keywords
+falsepositives:
+    - Legitimate file upload features may trigger
+fields:
+    - agent_name
+    - uri
+tags:
+    - attack.persistence
+    - attack.t1505.003

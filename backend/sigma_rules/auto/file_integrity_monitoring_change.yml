@@ -1,0 +1,23 @@
+title: File Integrity Monitoring Change
+id: AUTO-FIM-001
+status: experimental
+description: Auto-generated rule for File Integrity Monitoring Change derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "integrity"
+            - "modified"
+            - "checksum"
+            - "fim"
+            - "filedelete"
+    condition: selection_keywords
+fields:
+    - file
+    - change
+    - checksum
+tags:
+    - attack.defense-evasion
+    - attack.t1070001

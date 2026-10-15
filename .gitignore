@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.pkl
+*.db
+venv/
+.venv/
+.env
+data/vector_store/
+data/datasets/
+*.log
+.DS_Store

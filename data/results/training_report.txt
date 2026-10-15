@@ -1,0 +1,34 @@
+Classifier: RandomForest
+Samples: 2000 (train 1400 / test 600)
+Accuracy: 0.9667
+Weighted F1: 0.9666
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         low       0.98      0.98      0.98        58
+      medium       0.99      0.93      0.96       121
+        high       0.95      0.98      0.97       259
+    critical       0.97      0.96      0.97       162
+
+    accuracy                           0.97       600
+   macro avg       0.97      0.97      0.97       600
+weighted avg       0.97      0.97      0.97       600
+
+Confusion Matrix:
+                 Predicted
+                 Low   Med   High  Crit
+  Actual low       57     1     0     0
+  Actual medium     1   113     7     0
+  Actual high       0     0   254     5
+  Actual critical     0     0     6   156
+
+Feature Importance:
+  sigma_severity       0.4609
+  wazuh_level          0.4377
+  log_volume           0.0286
+  script_execution     0.0232
+  hour_of_day          0.0209
+  prev_alerts_24h      0.0131
+  day_of_week          0.0117
+  agent_type           0.0040

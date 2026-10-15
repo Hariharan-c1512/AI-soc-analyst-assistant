@@ -1,0 +1,24 @@
+title: Ransomware File Encryption Pattern
+id: AUTO-RFE-001
+status: experimental
+description: Auto-generated rule for Ransomware File Encryption Pattern derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "ransomware"
+            - ".locked"
+            - "encryption"
+            - "bulk file"
+            - ".crypt"
+    condition: selection_keywords
+fields:
+    - behavior
+    - ext
+    - count
+    - dir
+tags:
+    - attack.impact
+    - attack.t1486

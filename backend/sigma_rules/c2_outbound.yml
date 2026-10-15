@@ -1,0 +1,25 @@
+title: Suspicious Outbound Connection to C2 IP
+id: CMD-014
+status: experimental
+description: Detects outbound connections to known malicious or command-and-control infrastructure
+level: 14
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "command and control"
+            - "c2"
+            - "malicious ip"
+            - "outbound connection"
+            - "beaconing"
+    condition: selection_keywords
+falsepositives:
+    - Connections to cloud providers with poor reputation
+fields:
+    - agent_name
+    - dst_ip
+    - process
+tags:
+    - attack.command-and-control
+    - attack.t1071.001

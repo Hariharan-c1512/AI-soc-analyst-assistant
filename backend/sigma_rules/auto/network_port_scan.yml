@@ -1,0 +1,23 @@
+title: Network Port Scan
+id: AUTO-NPS-001
+status: experimental
+description: Auto-generated rule for Network Port Scan derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "port scan"
+            - "ports_scanned"
+            - "sweep"
+            - "nmap"
+            - "scan"
+    condition: selection_keywords
+fields:
+    - proto
+    - ports_scanned
+    - src
+tags:
+    - attack.discovery
+    - attack.t1046

@@ -1,0 +1,19 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+sqlalchemy>=2.0.30
+pydantic>=2.9.0
+pydantic-settings>=2.5.0
+python-dotenv>=1.0.1
+pandas>=2.2.0
+numpy>=1.26.0
+scikit-learn>=1.5.0
+joblib>=1.4.0
+httpx>=0.27.0
+streamlit>=1.40.0
+plotly>=5.24.0
+PyYAML>=6.0.1
+sentence-transformers>=2.7.0
+# Optional: Threat Intelligence & Notifications
+# virustotal-api>=1.3.0  # Uncomment for VirusTotal
+# python-telegram-bot>=20.0  # Uncomment for Telegram
+# secure-smtplib  # Uncomment for email

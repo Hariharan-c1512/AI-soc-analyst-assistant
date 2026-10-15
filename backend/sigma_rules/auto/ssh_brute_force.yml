@@ -1,0 +1,23 @@
+title: SSH Brute Force
+id: AUTO-SSH-001
+status: experimental
+description: Auto-generated rule for SSH Brute Force derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "brute force"
+            - "failed ssh"
+            - "failed login"
+            - "attempts"
+    condition: selection_keywords
+fields:
+    - attempts
+    - src
+    - user
+    - service
+tags:
+    - attack.credential-access
+    - attack.t1110

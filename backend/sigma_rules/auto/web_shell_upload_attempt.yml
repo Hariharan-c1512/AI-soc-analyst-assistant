@@ -1,0 +1,24 @@
+title: Web Shell Upload Attempt
+id: AUTO-WSU-001
+status: experimental
+description: Auto-generated rule for Web Shell Upload Attempt derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "web shell"
+            - "shell.php"
+            - ".php"
+            - "upload"
+            - "webshell"
+    condition: selection_keywords
+fields:
+    - uri
+    - src
+    - status
+    - size
+tags:
+    - attack.persistence
+    - attack.t1505003

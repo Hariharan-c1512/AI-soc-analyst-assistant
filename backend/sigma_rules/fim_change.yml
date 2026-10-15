@@ -1,0 +1,24 @@
+title: File Integrity Monitoring Change
+id: FIM-001
+status: experimental
+description: Detects critical file integrity changes (modification, deletion)
+level: 5
+logsource:
+    product: wazuh
+    service: syscheck
+detection:
+    selection_keywords:
+        keywords:
+            - "file integrity"
+            - "syscheck"
+            - "fim"
+            - "checksum"
+    condition: selection_keywords
+falsepositives:
+    - Legitimate software updates modifying files
+fields:
+    - agent_name
+    - file
+tags:
+    - attack.defense-evasion
+    - attack.t1070.001

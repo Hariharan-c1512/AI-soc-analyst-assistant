@@ -1,0 +1,25 @@
+title: SSH Brute Force
+id: BRUTE-002
+status: experimental
+description: Detects multiple failed SSH login attempts consistent with brute force attacks
+level: 10
+logsource:
+    product: wazuh
+    service: sshd
+detection:
+    selection_keywords:
+        keywords:
+            - "brute force"
+            - "failed ssh"
+            - "failed login"
+            - "attempts"
+    condition: selection_keywords
+falsepositives:
+    - Misconfigured automation trying stale credentials
+fields:
+    - agent_name
+    - src
+    - attempts
+tags:
+    - attack.credential-access
+    - attack.t1110

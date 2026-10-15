@@ -1,0 +1,23 @@
+title: Sudo Privilege Escalation
+id: PRIV-001
+status: experimental
+description: Detects privilege escalation attempts via sudo misuse
+level: 9
+logsource:
+    product: wazuh
+    service: sudo
+detection:
+    selection_keywords:
+        keywords:
+            - "sudo"
+            - "privilege escalation"
+            - "misuse"
+    condition: selection_keywords
+falsepositives:
+    - Administrative users running /bin/su legitimately
+fields:
+    - agent_name
+    - user
+tags:
+    - attack.privilege-escalation
+    - attack.t1068

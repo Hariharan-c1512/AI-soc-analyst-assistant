@@ -1,0 +1,24 @@
+title: Suspicious PowerShell Command Line
+id: PS-001
+status: experimental
+description: Detects PowerShell executions with encoded or obfuscated command lines
+level: 10
+logsource:
+    product: wazuh
+    service: powershell
+detection:
+    selection_powershell:
+        field: description
+        contains: "powershell"
+    selection_encoded:
+        field: raw_log
+        contains: "-enc"
+    condition: selection_powershell and selection_encoded
+falsepositives:
+    - Some legitimate admin scripts use encoded commands
+fields:
+    - agent_name
+    - ps_command
+tags:
+    - attack.execution
+    - attack.t1059.001

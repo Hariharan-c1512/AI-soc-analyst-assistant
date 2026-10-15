@@ -1,0 +1,23 @@
+title: SQL Injection Attempt
+id: WEB-002
+status: experimental
+description: Detects common SQL injection patterns in web requests
+level: 8
+logsource:
+    product: wazuh
+    service: apache
+detection:
+    selection_keywords:
+        keywords:
+            - "sql injection"
+            - "or '1'='1"
+            - "union select"
+    condition: selection_keywords
+falsepositives:
+    - Automated scanning tools may generate benign matches
+fields:
+    - agent_name
+    - uri
+tags:
+    - attack.initial-access
+    - attack.t1190

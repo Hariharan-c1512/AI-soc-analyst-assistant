@@ -1,0 +1,23 @@
+title: SQL Injection Attempt
+id: AUTO-SQL-001
+status: experimental
+description: Auto-generated rule for SQL Injection Attempt derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "sql injection"
+            - "' or '1'='1"
+            - "select "
+            - "union select"
+            - "sqlmap"
+    condition: selection_keywords
+fields:
+    - uri
+    - src
+    - method
+tags:
+    - attack.initial-access
+    - attack.t1190

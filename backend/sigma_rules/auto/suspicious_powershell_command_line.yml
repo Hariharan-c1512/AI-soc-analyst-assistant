@@ -1,0 +1,23 @@
+title: Suspicious PowerShell Command Line
+id: AUTO-SPS-001
+status: experimental
+description: Auto-generated rule for Suspicious PowerShell Command Line derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "powershell"
+            - "-enc"
+            - "encodedcommand"
+            - "cmd.exe"
+            - "bypass"
+    condition: selection_keywords
+fields:
+    - ps_command
+    - user
+    - host
+tags:
+    - attack.execution
+    - attack.t1059001

@@ -1,0 +1,22 @@
+title: Sudo Privilege Escalation
+id: AUTO-SPE-001
+status: experimental
+description: Auto-generated rule for Sudo Privilege Escalation derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "sudo"
+            - "privilege escalation"
+            - "/bin/su"
+            - "sudoers"
+    condition: selection_keywords
+fields:
+    - sudo
+    - tty
+    - host
+tags:
+    - attack.privilege-escalation
+    - attack.t1068

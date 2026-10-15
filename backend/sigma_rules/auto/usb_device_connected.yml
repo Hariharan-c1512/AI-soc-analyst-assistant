@@ -1,0 +1,22 @@
+title: USB Device Connected
+id: AUTO-USB-001
+status: experimental
+description: Auto-generated rule for USB Device Connected derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "usb"
+            - "usbstor"
+            - "removable"
+            - "san"
+    condition: selection_keywords
+fields:
+    - usb
+    - serial
+    - host
+tags:
+    - attack.initial-access
+    - attack.t1091

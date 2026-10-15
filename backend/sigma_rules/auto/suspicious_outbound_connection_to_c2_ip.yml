@@ -1,0 +1,27 @@
+title: Suspicious Outbound Connection to C2 IP
+id: AUTO-SOC-001
+status: experimental
+description: Auto-generated rule for Suspicious Outbound Connection to C2 IP derived from labeled SOC alert data
+level: 6
+logsource:
+    product: wazuh
+detection:
+    selection_keywords:
+        keywords:
+            - "c2"
+            - "command and control"
+            - "beacon"
+            - "malicious ip"
+            - "outbound"
+            - "powershell"
+    condition: selection_keywords
+fields:
+    - src_ip
+    - dst_ip
+    - dst_port
+    - proto
+    - bytes
+    - process
+tags:
+    - attack.command-and-control
+    - attack.t1071001

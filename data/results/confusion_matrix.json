@@ -1,0 +1,46 @@
+{
+  "labels": [
+    "low",
+    "medium",
+    "high",
+    "critical"
+  ],
+  "matrix": [
+    [
+      57,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      113,
+      7,
+      0
+    ],
+    [
+      0,
+      0,
+      254,
+      5
+    ],
+    [
+      0,
+      0,
+      6,
+      156
+    ]
+  ],
+  "accuracy": 0.9667,
+  "f1_weighted": 0.9666,
+  "feature_importance": {
+    "sigma_severity": 0.4609,
+    "wazuh_level": 0.4377,
+    "log_volume": 0.0286,
+    "script_execution": 0.0232,
+    "hour_of_day": 0.0209,
+    "prev_alerts_24h": 0.0131,
+    "day_of_week": 0.0117,
+    "agent_type": 0.004
+  }
+}

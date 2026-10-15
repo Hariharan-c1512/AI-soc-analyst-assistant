@@ -1,0 +1,22 @@
+title: Ransomware File Encryption Pattern
+id: RAN-001
+status: experimental
+description: Detects bulk file modification behavior consistent with ransomware encryption
+level: 15
+logsource:
+    product: wazuh
+detection:
+    selection:
+        field: description
+        contains: "ransomware"
+    selection_behavior:
+        field: raw_log
+        contains: "bulk file modification"
+    condition: selection or selection_behavior
+falsepositives:
+    - Legitimate bulk file operations in backup jobs
+fields:
+    - agent_name
+tags:
+    - attack.impact
+    - attack.t1486

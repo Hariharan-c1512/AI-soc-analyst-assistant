@@ -1,0 +1,23 @@
+title: USB Device Connected
+id: MEDIA-001
+status: experimental
+description: Detects USB storage device connection events
+level: 4
+logsource:
+    product: wazuh
+    service: usb
+detection:
+    selection_keywords:
+        keywords:
+            - "usb"
+            - "usbstor"
+            - "device connected"
+    condition: selection_keywords
+falsepositives:
+    - Routine USB usage by staff
+fields:
+    - agent_name
+    - usb
+tags:
+    - attack.initial-access
+    - attack.t1091

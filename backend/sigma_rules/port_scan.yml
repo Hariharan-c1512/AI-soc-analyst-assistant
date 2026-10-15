@@ -1,0 +1,24 @@
+title: Network Port Scan
+id: SCAN-001
+status: experimental
+description: Detects network port scans or service sweeps
+level: 6
+logsource:
+    product: wazuh
+    service: network
+detection:
+    selection_keywords:
+        keywords:
+            - "port scan"
+            - "port sweep"
+            - "ports_scanned"
+            - "network scan"
+    condition: selection_keywords
+falsepositives:
+    - Vulnerability scanners and monitoring tools
+fields:
+    - agent_name
+    - src
+tags:
+    - attack.discovery
+    - attack.t1046
